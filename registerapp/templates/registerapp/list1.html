@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrations</title>
+</head>
+<body>
+    <h2>Registrations</h2>
+    <ul>
+        {% for registration in registrations %}
+            <li>{{ registration.name }} - {{ registration.number }} - {{ registration.email }}
+                <a href="{% url 'update_registration' registration.pk %}">Edit</a>
+                <a href="{% url 'delete_registration' registration.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

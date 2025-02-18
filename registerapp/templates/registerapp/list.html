@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrations</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registrations</h2>
+    <div style="position: absolute; top: 20px; right: 10px;">
+        <a href="{% url 'register' %}"  style="text-decoration: none; padding: 5px 10px; background-color: green; color: white; border-radius: 3px;">Add User</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in registrations %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.number }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>
+                        <a href="{% url 'update_registration' i.pk %}" style="text-decoration: none; color:green">Edit</a> |
+                        <a href="{% url 'delete_registration' i.pk %}"  style="text-decoration: none; color:red">Delete</a>
+
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

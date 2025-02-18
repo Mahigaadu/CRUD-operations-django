@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <h2>Are you sure you want to delete {{ registration.name }}?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes</button>
+        <a href="{% url 'list_registrations' %}"  style="text-decoration: none; padding: 5px 10px; background-color: green; color: white; border-radius: 3px;">No</a>
+    </form>
+</body>
+</html>
